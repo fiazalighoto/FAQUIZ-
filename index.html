@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQUIZ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="login-section" class="center">
+    <h1>FAQUIZ</h1>
+    <p>This website belongs to <strong>Fiaz</strong> & <strong>Arslan</strong>.</p>
+    <div class="container">
+      <input type="text" id="phone" placeholder="Enter Phone Number" />
+      <input type="password" id="password" placeholder="Enter Password" />
+      <button onclick="login()">Login</button>
+    </div>
+  </div>
+
+  <div id="category-section" class="hidden">
+    <h2 class="center">Select Category</h2>
+    <div class="categories">
+      <div class="category" onclick="startQuiz('Science')">Science</div>
+      <div class="category" onclick="startQuiz('Math')">Math</div>
+      <div class="category" onclick="startQuiz('English')">English</div>
+    </div>
+  </div>
+
+  <div id="quiz-section" class="hidden">
+    <div class="center"><h3 id="timer">Time Left: 10:00</h3></div>
+    <div id="question-container">
+      <div class="question-text" id="question"></div>
+      <ul class="options" id="options"></ul>
+    </div>
+    <div class="navigation">
+      <button onclick="prevQuestion()">Previous</button>
+      <button onclick="nextQuestion()">Next</button>
+    </div>
+    <button id="submit-btn" class="hidden" onclick="showResult()">Submit Quiz</button>
+  </div>
+
+  <div id="result" class="hidden"></div>
+  <button id="summary-btn" class="hidden" onclick="showSummary()">Show Summary</button>
+  <div id="summary" class="hidden"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
