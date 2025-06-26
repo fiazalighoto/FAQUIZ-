@@ -1,0 +1,2 @@
+# FAQUIZ-
+All subjects quiz 
