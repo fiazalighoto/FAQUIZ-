@@ -7,41 +7,62 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Login Section -->
   <div id="login-section" class="center">
-    <h1>FAQUIZ</h1>
-    <p>This website belongs to <strong>Fiaz</strong> & <strong>Arslan</strong>.</p>
-    <div class="container">
-      <input type="text" id="phone" placeholder="Enter Phone Number" />
-      <input type="password" id="password" placeholder="Enter Password" />
-      <button onclick="login()">Login</button>
-    </div>
+    <h1>Welcome to FAQUIZ</h1>
+    <input type="text" id="username" placeholder="Your Name" />
+    <input type="text" id="phone" placeholder="03XXXXXXXXX" />
+    <input type="password" id="password" placeholder="Password (1111)" />
+    <button id="loginBtn">Login</button>
+    <p id="login-error" class="error"></p>
   </div>
 
-  <div id="category-section" class="hidden">
-    <h2 class="center">Select Category</h2>
-    <div class="categories">
-      <div class="category" onclick="startQuiz('Science')">Science</div>
-      <div class="category" onclick="startQuiz('Math')">Math</div>
-      <div class="category" onclick="startQuiz('English')">English</div>
-    </div>
+  <!-- Quiz Selection Section -->
+  <div id="quiz-selection" class="center hidden">
+    <h2>Select Your Quiz</h2>
+    <button onclick="startQuiz('Science')">Science</button>
+    <button onclick="startQuiz('Math')">Math</button>
+    <button onclick="startQuiz('English')">English</button>
+    <button onclick="startQuiz('General Knowledge')">General Knowledge</button>
+    <button onclick="showQuickQuizOptions()">QuickQuiz</button>
   </div>
 
-  <div id="quiz-section" class="hidden">
-    <div class="center"><h3 id="timer">Time Left: 10:00</h3></div>
-    <div id="question-container">
-      <div class="question-text" id="question"></div>
-      <ul class="options" id="options"></ul>
-    </div>
-    <div class="navigation">
-      <button onclick="prevQuestion()">Previous</button>
-      <button onclick="nextQuestion()">Next</button>
-    </div>
-    <button id="submit-btn" class="hidden" onclick="showResult()">Submit Quiz</button>
+  <!-- QuickQuiz Options -->
+  <div id="quickquiz-options" class="center hidden">
+    <h2>QuickQuiz Tests</h2>
+    <button onclick="startQuiz('Test Yourself')">Test Yourself</button>
+    <button onclick="startQuiz('Look What You Can Do')">Look What You Can Do</button>
+    <button onclick="requestCode('Are You Smart?', '45102')">Are You Smart?</button>
+    <button onclick="requestCode('Let\'s See What You\'ve Got', '02052')">Let's See What You've Got</button>
+    <button onclick="requestCode('Only for Pros', '02009')">Only for Pros</button>
+    <button onclick="document.getElementById('quiz-selection').classList.remove('hidden'); this.parentElement.classList.add('hidden');">&larr; Back</button>
   </div>
 
-  <div id="result" class="hidden"></div>
-  <button id="summary-btn" class="hidden" onclick="showSummary()">Show Summary</button>
-  <div id="summary" class="hidden"></div>
+  <!-- Quiz Container -->
+  <div id="quiz-container" class="center hidden">
+    <h2 id="quiz-title">Quiz</h2>
+    <p id="timer">Time Left: 00:00</p>
+    <div id="question-box"></div>
+    <button onclick="prevQuestion()">Previous</button>
+    <button onclick="showReviewBox()">Submit</button>
+  </div>
+
+  <!-- Review Section -->
+  <div id="review-section" class="center hidden">
+    <h3>Please confirm submission:</h3>
+    <textarea placeholder="Write any feedback (optional)..."></textarea><br>
+    <button onclick="submitReview()">Submit Quiz</button>
+  </div>
+
+  <!-- Result Section -->
+  <div id="result-section" class="center hidden">
+    <h2 id="final-score"></h2>
+    <div id="summary"></div>
+  </div>
+
+  <footer class="center">
+    <p>&copy; All Rights Reserved to FAQUIZ</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
